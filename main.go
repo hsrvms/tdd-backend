@@ -5,17 +5,8 @@ import (
 	"net/http"
 )
 
-type InMemoryPlayerStore struct {
-}
-
-func (i *InMemoryPlayerStore) GetPlayerScore(name string) int {
-	return 123
-}
-
-func (i *InMemoryPlayerStore) RecordWin(name string) {}
-
 func main() {
-	store := &InMemoryPlayerStore{}
+	store := NewInMemoryPlayerStore()
 	server := &PlayerServer{store: store}
 
 	log.Println("server is running on 5000")
